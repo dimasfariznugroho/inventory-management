@@ -7,89 +7,23 @@ namespace App\Entity;
 /**
  * Domain entity representing a product supplier.
  */
-class Supplier
+class Supplier extends Partner
 {
-    public function __construct(
-        private ?int $id,
-        private string $name,
-        private ?string $contact = null,
-        private ?string $address = null,
-        private bool $isActive = true,
-        private ?string $createdAt = null,
-        private ?string $updatedAt = null
-    ) {
-    }
-
-    public function getId(): ?int
+    /**
+     * Hydrate a Supplier entity from a database record.
+     *
+     * @param array<string, mixed> $data
+     */
+    public static function fromArray(array $data): self
     {
-        return $this->id;
-    }
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function getContact(): ?string
-    {
-        return $this->contact;
-    }
-
-    public function setContact(?string $contact): void
-    {
-        $this->contact = $contact;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(?string $address): void
-    {
-        $this->address = $address;
-    }
-
-    public function isActive(): bool
-    {
-        return $this->isActive;
-    }
-
-    public function setIsActive(bool $isActive): void
-    {
-        $this->isActive = $isActive;
-    }
-
-    public function getCreatedAt(): ?string
-    {
-        return $this->createdAt;
-    }
-
-    public function getUpdatedAt(): ?string
-    {
-        return $this->updatedAt;
-    }
-
-    public function toArray(): array
-    {
-        return [
-            'id'         => $this->id,
-            'name'       => $this->name,
-            'contact'    => $this->contact,
-            'address'    => $this->address,
-            'is_active'  => $this->isActive,
-            'created_at' => $this->createdAt,
-            'updated_at' => $this->updatedAt,
-        ];
+        return new self(
+            id: isset($data['id']) ? (int) $data['id'] : null,
+            name: (string) ($data['name'] ?? ''),
+            contact: isset($data['contact']) ? (string) $data['contact'] : null,
+            address: isset($data['address']) ? (string) $data['address'] : null,
+            isActive: isset($data['is_active']) ? (bool) $data['is_active'] : true,
+            createdAt: isset($data['created_at']) ? (string) $data['created_at'] : null,
+            updatedAt: isset($data['updated_at']) ? (string) $data['updated_at'] : null
+        );
     }
 }
