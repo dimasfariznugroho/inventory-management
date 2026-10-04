@@ -22,7 +22,7 @@ class MySQLPingRepository implements PingRepositoryInterface
     {
         try {
             $pdo = $this->database->getConnection();
-            $stmt = $pdo->prepare('SELECT NOW() AS current_time, VERSION() AS mysql_version, COALESCE(DATABASE(), "") AS db_name, 1 AS is_alive');
+            $stmt = $pdo->prepare('SELECT NOW() AS server_time, VERSION() AS mysql_version, COALESCE(DATABASE(), "") AS db_name, 1 AS is_alive');
             $stmt->execute();
 
             $row = $stmt->fetch();
@@ -31,7 +31,7 @@ class MySQLPingRepository implements PingRepositoryInterface
             }
 
             return new PingResult(
-                (string) ($row['current_time'] ?? 'N/A'),
+                (string) ($row['server_time'] ?? 'N/A'),
                 (string) ($row['mysql_version'] ?? 'N/A'),
                 (string) ($row['db_name'] ?? 'N/A'),
                 (bool) ($row['is_alive'] ?? false)
