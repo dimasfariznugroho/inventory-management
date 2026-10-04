@@ -158,7 +158,7 @@ class SalesOrderService
 
         $soNumber = $this->soRepository instanceof \App\Repository\MySQLSalesOrderRepository
             ? $this->soRepository->generateNextSoNumber()
-            : 'SO-' . date('Ymd') . '-' . sprintf('%04d', rand(1, 9999));
+            : 'SO-' . date('Ymd') . '-' . sprintf('%04d', random_int(1, 9999));
 
         $order = new SalesOrder(
             id: null,
