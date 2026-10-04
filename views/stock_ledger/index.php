@@ -10,7 +10,7 @@
 
 <div class="card table-card">
     <div class="table-container">
-        <table class="data-table">
+        <table class="data-table" aria-label="Buku Besar Mutasi Stok">
             <thead>
                 <tr>
                     <th style="width: 155px;">Waktu Mutasi</th>

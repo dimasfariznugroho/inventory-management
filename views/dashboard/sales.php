@@ -148,7 +148,7 @@
         </div>
 
         <div class="table-responsive">
-            <table class="data-table">
+            <table class="data-table" aria-label="Tabel Pesanan Sales Terbaru">
                 <thead>
                     <tr>
                         <th>No. SO</th>

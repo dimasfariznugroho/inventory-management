@@ -122,12 +122,12 @@ $canManagePO = AuthSession::hasRole(['Admin', 'WarehouseStaff']);
     $emptyResetUrl = '/purchase-orders';
     $emptyActionUrl = $canManagePO ? '/purchase-orders/create' : null;
     $emptyActionText = $canManagePO ? '+ Buat Purchase Order Baru' : null;
-    require dirname(__DIR__) . '/layout/empty_state.php';
+    require_once dirname(__DIR__) . '/layout/empty_state.php';
     ?>
 <?php else: ?>
     <div class="card table-card">
         <div class="table-responsive">
-            <table class="data-table">
+            <table class="data-table" aria-label="Daftar Purchase Order">
                 <thead>
                     <tr>
                         <th style="width: 150px;">No. PO</th>
@@ -183,5 +183,5 @@ $canManagePO = AuthSession::hasRole(['Admin', 'WarehouseStaff']);
     </div>
 
     <!-- Reusable Pagination Component -->
-    <?php require dirname(__DIR__) . '/layout/pagination.php'; ?>
+    <?php require_once dirname(__DIR__) . '/layout/pagination.php'; ?>
 <?php endif; ?>

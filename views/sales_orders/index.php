@@ -122,12 +122,12 @@ $canCreateSO = AuthSession::hasRole(['Admin', 'Sales']);
     $emptyResetUrl = '/sales-orders';
     $emptyActionUrl = $canCreateSO ? '/sales-orders/create' : null;
     $emptyActionText = $canCreateSO ? '+ Buat Sales Order Baru' : null;
-    require dirname(__DIR__) . '/layout/empty_state.php';
+    require_once dirname(__DIR__) . '/layout/empty_state.php';
     ?>
 <?php else: ?>
     <div class="card table-card">
         <div class="table-responsive">
-            <table class="data-table">
+            <table class="data-table" aria-label="Daftar Sales Order">
                 <thead>
                     <tr>
                         <th style="width: 150px;">No. SO</th>
@@ -199,5 +199,5 @@ $canCreateSO = AuthSession::hasRole(['Admin', 'Sales']);
     </div>
 
     <!-- Reusable Pagination Component -->
-    <?php require dirname(__DIR__) . '/layout/pagination.php'; ?>
+    <?php require_once dirname(__DIR__) . '/layout/pagination.php'; ?>
 <?php endif; ?>

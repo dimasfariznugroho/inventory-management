@@ -121,7 +121,7 @@ $canManagePO = AuthSession::hasRole(['Admin', 'WarehouseStaff']);
     </div>
 
     <div class="table-container">
-        <table class="data-table">
+        <table class="data-table" aria-label="Detail Item Purchase Order">
             <thead>
                 <tr>
                     <th>Produk</th>
@@ -199,7 +199,7 @@ $canManagePO = AuthSession::hasRole(['Admin', 'WarehouseStaff']);
 
         <form action="/purchase-orders/<?= $po->getId() ?>/receipt" method="POST">
             <div class="table-container" style="margin-bottom: 1.25rem;">
-                <table class="data-table">
+                <table class="data-table" aria-label="Form Penerimaan Barang PO">
                     <thead>
                         <tr>
                             <th>Nama Produk / SKU</th>
@@ -308,7 +308,7 @@ $canManagePO = AuthSession::hasRole(['Admin', 'WarehouseStaff']);
     </div>
 
     <div class="table-container">
-        <table class="data-table">
+        <table class="data-table" aria-label="Riwayat Mutasi Penerimaan Barang PO">
             <thead>
                 <tr>
                     <th style="width: 150px;">Waktu Mutasi</th>

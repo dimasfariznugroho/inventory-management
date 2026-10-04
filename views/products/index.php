@@ -103,12 +103,12 @@ $isAdmin = AuthSession::hasRole('Admin');
     $emptyResetUrl = '/products';
     $emptyActionUrl = $isAdmin ? '/admin/products/create' : null;
     $emptyActionText = $isAdmin ? '+ Tambah Produk Baru' : null;
-    require dirname(__DIR__) . '/layout/empty_state.php';
+    require_once dirname(__DIR__) . '/layout/empty_state.php';
     ?>
 <?php else: ?>
     <div class="card table-card">
         <div class="table-responsive">
-            <table class="data-table">
+            <table class="data-table" aria-label="Katalog Produk">
                 <thead>
                     <tr>
                         <th style="width: 70px;">Gambar</th>
@@ -211,6 +211,6 @@ $isAdmin = AuthSession::hasRole('Admin');
     </div>
 
     <!-- Reusable Pagination Bar -->
-    <?php require dirname(__DIR__) . '/layout/pagination.php'; ?>
+    <?php require_once dirname(__DIR__) . '/layout/pagination.php'; ?>
 <?php endif; ?>
 

@@ -196,7 +196,7 @@
         </div>
 
         <div class="table-container table-responsive">
-            <table class="data-table">
+            <table class="data-table" aria-label="Tabel Peringatan Stok Menipis">
                 <thead>
                     <tr>
                         <th>SKU</th>

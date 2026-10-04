@@ -149,7 +149,7 @@ $isAdmin = AuthSession::hasRole('Admin');
             </div>
 
             <div class="table-container">
-                <table class="data-table">
+                <table class="data-table" aria-label="Distribusi Stok Produk Multi-Gudang">
                     <thead>
                         <tr>
                             <th>Nama Gudang</th>

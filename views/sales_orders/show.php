@@ -157,7 +157,7 @@ $canProcessIssue = AuthSession::hasRole(['Admin', 'WarehouseStaff']);
         </span>
     </div>
     <div class="table-container">
-        <table class="data-table">
+        <table class="data-table" aria-label="Detail Item Sales Order">
             <thead>
                 <tr>
                     <th>Produk</th>
@@ -222,7 +222,7 @@ $canProcessIssue = AuthSession::hasRole(['Admin', 'WarehouseStaff']);
 
         <form action="/sales-orders/<?= $order->getId() ?>/issue" method="POST" id="issueForm">
             <div class="table-container" style="margin-bottom: 1.25rem;">
-                <table class="data-table">
+                <table class="data-table" aria-label="Form Pengeluaran Barang Sales Order">
                     <thead>
                         <tr>
                             <th>Produk</th>
@@ -300,7 +300,7 @@ $canProcessIssue = AuthSession::hasRole(['Admin', 'WarehouseStaff']);
             </p>
         </div>
         <div class="table-container">
-            <table class="data-table">
+            <table class="data-table" aria-label="Riwayat Mutasi Pengeluaran Barang">
                 <thead>
                     <tr>
                         <th>Waktu Mutasi</th>

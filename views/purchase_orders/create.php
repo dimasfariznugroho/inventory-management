@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="table-container" style="margin-bottom: 1rem;">
-                    <table class="data-table" id="itemsTable">
+                    <table class="data-table" id="itemsTable" aria-label="Daftar Baris Item Purchase Order">
                         <thead>
                             <tr>
                                 <th style="width: 40%;">Produk</th>

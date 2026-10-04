@@ -7,3 +7,6 @@ Thumbs.db
 .idea/
 .vscode/
 scratch/
+phpunit-report.xml
+.scannerwork/
+

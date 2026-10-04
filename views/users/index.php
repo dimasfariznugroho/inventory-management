@@ -37,7 +37,7 @@
 
 <div class="card table-card">
     <div class="table-responsive">
-        <table class="data-table">
+        <table class="data-table" aria-label="Daftar Pengguna">
             <thead>
                 <tr>
                     <th style="width: 60px;">ID</th>

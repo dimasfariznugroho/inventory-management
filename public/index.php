@@ -55,7 +55,7 @@ if ($path === '') {
 }
 
 // 4. Composition Root (Dependency Injection)
-$dbConfig = require dirname(__DIR__) . '/config/database.php';
+$dbConfig = require_once dirname(__DIR__) . '/config/database.php';
 
 $database = new App\Repository\Database(
     host: $dbConfig['host'],

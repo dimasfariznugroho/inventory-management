@@ -37,7 +37,7 @@
 
 <div class="card table-card">
     <div class="table-container">
-        <table class="data-table">
+        <table class="data-table" aria-label="Daftar Pelanggan">
             <thead>
                 <tr>
                     <th style="width: 70px;">ID</th>

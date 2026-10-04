@@ -107,7 +107,7 @@
     </div>
 
     <div class="table-responsive">
-        <table class="data-table">
+        <table class="data-table" aria-label="Tabel Antrean Penerimaan Barang PO">
             <thead>
                 <tr>
                     <th>No. PO</th>
@@ -163,7 +163,7 @@
     </div>
 
     <div class="table-responsive">
-        <table class="data-table">
+        <table class="data-table" aria-label="Tabel Antrean Pengeluaran Barang SO">
             <thead>
                 <tr>
                     <th>No. SO</th>
@@ -220,7 +220,7 @@
         </div>
 
         <div class="table-responsive">
-            <table class="data-table">
+            <table class="data-table" aria-label="Tabel Peringatan Stok Menipis Gudang">
                 <thead>
                     <tr>
                         <th>SKU</th>
