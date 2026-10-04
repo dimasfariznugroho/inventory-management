@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Service\AuthSession;
 use App\Service\ReportService;
 
@@ -25,6 +26,8 @@ class ReportController
     public function exportStockLedger(): void
     {
         $this->enforceAuthenticated();
+        // Same access rule as the /stock-ledger page: Sales must not bypass it via the CSV export.
+        $this->enforceRoles([User::ROLE_ADMIN, User::ROLE_WAREHOUSE_STAFF]);
 
         $startDate = isset($_GET['start_date']) && trim((string) $_GET['start_date']) !== '' ? trim((string) $_GET['start_date']) : null;
         $endDate = isset($_GET['end_date']) && trim((string) $_GET['end_date']) !== '' ? trim((string) $_GET['end_date']) : null;
@@ -79,5 +82,23 @@ class ReportController
             header('Location: /login');
             exit;
         }
+    }
+
+    /**
+     * @param string[] $roles
+     */
+    private function enforceRoles(array $roles): void
+    {
+        if (AuthSession::hasRole($roles)) {
+            return;
+        }
+
+        http_response_code(403);
+        $title = '403 Forbidden — Akses Ditolak';
+        $message = 'Anda tidak memiliki izin untuk mengunduh laporan ini.';
+        require_once dirname(__DIR__, 2) . '/views/layout/header.php';
+        require_once dirname(__DIR__, 2) . '/views/errors/403.php';
+        require_once dirname(__DIR__, 2) . '/views/layout/footer.php';
+        exit;
     }
 }

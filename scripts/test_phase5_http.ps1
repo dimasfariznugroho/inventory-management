@@ -230,6 +230,17 @@ Assert-Test -Name "Stock Ledger CSV contains required column headers" -Condition
 Assert-Test -Name "Stock Ledger CSV contains initial Receipt entries" -Condition ($ledgerCsvRes.Content -match 'Receipt')
 Assert-Test -Name "Stock Ledger CSV contains initial Issue entries" -Condition ($ledgerCsvRes.Content -match 'Issue')
 
+# 1b. Stock Ledger CSV RBAC: same roles as /stock-ledger page (Admin, WarehouseStaff)
+try {
+    $salesLedgerCsv = Invoke-WebRequest -Uri "$BaseUrl/reports/stock-ledger/export" -WebSession $salesSession -UseBasicParsing -ErrorAction Stop
+    $salesLedgerStatus = [int]$salesLedgerCsv.StatusCode
+} catch {
+    $salesLedgerStatus = [int]$_.Exception.Response.StatusCode
+}
+Assert-Test -Name "Sales blocked from Stock Ledger CSV export (403)" -Condition ($salesLedgerStatus -eq 403) -Details "Status: $salesLedgerStatus"
+$whLedgerCsv = Invoke-WebRequest -Uri "$BaseUrl/reports/stock-ledger/export" -WebSession $whSession -UseBasicParsing
+Assert-Test -Name "Warehouse Staff can export Stock Ledger CSV" -Condition ($whLedgerCsv.StatusCode -eq 200 -and $whLedgerCsv.Headers['Content-Type'] -match 'text/csv')
+
 # 2. Purchase Orders CSV Export
 $poCsvRes = Invoke-WebRequest -Uri "$BaseUrl/reports/orders/export?type=po" -WebSession $adminSession -UseBasicParsing
 Assert-Test -Name "Purchase Orders CSV export returns HTTP 200" -Condition ($poCsvRes.StatusCode -eq 200)
