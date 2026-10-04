@@ -29,7 +29,7 @@
         <?php endif; ?>
 
         <form action="/admin/products/<?= $old['id'] ?>/edit" method="POST" enctype="multipart/form-data" class="standard-form">
-            <?php require __DIR__ . '/_form_fields.php'; ?>
+            <?php require_once __DIR__ . '/_form_fields.php'; ?>
 
             <div class="form-actions" style="margin-top: 2rem; display: flex; gap: 0.75rem; justify-content: flex-end; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
                 <a href="/products/<?= $old['id'] ?>" class="btn btn-secondary">Batal</a>

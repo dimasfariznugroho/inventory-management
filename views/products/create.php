@@ -29,7 +29,7 @@
         <?php endif; ?>
 
         <form action="/admin/products/create" method="POST" enctype="multipart/form-data" class="standard-form">
-            <?php require __DIR__ . '/_form_fields.php'; ?>
+            <?php require_once __DIR__ . '/_form_fields.php'; ?>
 
             <div class="form-group" style="margin-top: 1.25rem;">
                 <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
