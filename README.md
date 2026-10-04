@@ -135,14 +135,24 @@ docker compose exec web vendor/bin/phpstan analyse --debug --memory-limit=512M
 ```
 
 Laporan hasil analisis statis (0 critical error) tersedia di:
-- 📄 **[Laporan Analisis Statis PHPStan](docs/quality/static-analysis-report.md)**
+### 3. Menjalankan Pemeriksaan Kualitas SonarQube
+Jalankan analisis kualitas kode lengkap (Quality Gate PASSED):
+
+```bash
+docker run --rm --network inventory_management_default -v "${PWD}:/usr/src" sonarsource/sonar-scanner-cli
+```
+
+Laporan kelulusan audit SonarQube tersedia di:
+- 📄 **[Laporan Audit Kualitas SonarQube](docs/quality/sonarqube-audit-report.md)**
 
 ---
 
 ## 📚 Dokumentasi Teknis & Arsitektur Lengkap
 Untuk ulasan mendalam mengenai ERD, normalisasi 3NF, audit query, transaksi ACID, indexing, dan keamanan sistem, silakan merujuk ke:
 - 📄 **[Laporan Arsitektur & Database](docs/LAPORAN_ARSITEKTUR_DAN_DATABASE.md)**
+- 📄 **[Laporan Audit Kualitas SonarQube (Quality Gate PASSED)](docs/quality/sonarqube-audit-report.md)**
 - 📄 **[Technical Debt & Query Guidelines](docs/quality/tech-debt.md)**
 - 📄 **[Laporan Hasil Pengujian PHPUnit](docs/testing/test-suite-report.md)**
 - 📄 **[Laporan Kualitas Kode PHPStan](docs/quality/static-analysis-report.md)**
+
 
